@@ -1,0 +1,24 @@
+﻿@page "/game/{GameId}"
+@rendermode InteractiveServer
+
+
+<PageTitle>Home</PageTitle>
+
+GameTick Number: @game.TickNumber
+<br/>
+<br/>
+<button @onclick="game.StartGame">Start Game</button>
+
+@code
+{
+    [Parameter]
+    public string GameId {get; set;}
+    Game game;
+    protected override void OnInitialized()
+    {
+        game = GameManager.Games.First(
+            Game g => g.Id.ToString() == GameId) ?? throw new Exception("Error Occured")
+        );
+        game.GameUpdated += ()=> InvokeAsync(StateHasChanged);
+    }
+}

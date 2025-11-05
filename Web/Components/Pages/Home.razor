@@ -1,0 +1,24 @@
+@page "/"
+@using System.Runtime.InteropServices
+@rendermode InteractiveServer
+@inject NavigationManager navigation
+
+
+
+<button @onclick="MakeGame">Make a game</button>
+
+
+
+
+
+@code
+{
+    public void MakeGame()
+    {
+       
+        Console.WriteLine("The game has started");
+        Game newGame= new Game();
+        GameManager.Games.Add(newGame);
+        navigation.NavigateTo(uri:$"/game/{newGame.Id}");
+    }
+}
