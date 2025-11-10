@@ -1,6 +1,6 @@
-﻿@page "/game/{GameId}"
+﻿@page "/game/{GameId}/{PlayerNumber}"
 @rendermode InteractiveServer
-
+@inject NavigationManager navigation
 
 <PageTitle>Home</PageTitle>
 
@@ -13,12 +13,23 @@ GameTick Number: @game.TickNumber
 {
     [Parameter]
     public string GameId {get; set;}
+    [Parameter]
+    public string PlayerNumber {get; set;}
     Game game;
     protected override void OnInitialized()
     {
         game = GameManager.Games.First(
-            Game g => g.Id.ToString() == GameId) ?? throw new Exception("Error Occured")
-        );
+            (Game g) => g.Id.ToString() == GameId 
+        )?? throw new Exception("Error Occured");
         game.GameUpdated += ()=> InvokeAsync(StateHasChanged);
+
+        if(PlayerNumber == "1")
+        {
+         game.player= "1";
+        }
+        else if(PlayerNumber == "2")
+        {
+            game.player = "2";
+        }
     }
 }

@@ -9,3 +9,4 @@ C:\Users\peshal.parajuli\Desktop\proj\Logic\obj\Debug\net9.0\Logic.dll
 C:\Users\peshal.parajuli\Desktop\proj\Logic\obj\Debug\net9.0\refint\Logic.dll
 C:\Users\peshal.parajuli\Desktop\proj\Logic\obj\Debug\net9.0\Logic.pdb
 C:\Users\peshal.parajuli\Desktop\proj\Logic\obj\Debug\net9.0\ref\Logic.dll
+C:\Users\peshal.parajuli\Desktop\proj\Logic\obj\Debug\net9.0\Logic.sourcelink.json

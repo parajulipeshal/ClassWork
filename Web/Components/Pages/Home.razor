@@ -1,24 +1,23 @@
 @page "/"
-@using System.Runtime.InteropServices
+@using Logic
 @rendermode InteractiveServer
 @inject NavigationManager navigation
 
+<button @onclick="MakeGame">Make a Game</button>
 
-
-<button @onclick="MakeGame">Make a game</button>
-
-
-
-
-
-@code
+@if (game != null)
 {
+    <a href="@($"/game/{game.Id}/2")">Join Game</a>
+}
+
+@code {
+    private Game? game;
+
     public void MakeGame()
     {
-       
-        Console.WriteLine("The game has started");
-        Game newGame= new Game();
-        GameManager.Games.Add(newGame);
-        navigation.NavigateTo(uri:$"/game/{newGame.Id}");
+        game = new Game();
+        GameManager.Games.Add(game);
+        Console.WriteLine($"Game created with ID: {game.Id}");
+        navigation.NavigateTo($"/game/{game.Id}/1");
     }
 }

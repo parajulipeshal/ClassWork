@@ -5,6 +5,7 @@ public class Game
 {
     public Guid Id { get; } = Guid.NewGuid();
     public event Action? GameUpdated;
+    public string? player { get; set; }
 
     public int TickNumber { get; set; }
     private System.Timers.Timer? tickTimer = null;

@@ -79,3 +79,4 @@ C:\Users\peshal.parajuli\Desktop\proj\Web\obj\Debug\net9.0\Web.genruntimeconfig.
 C:\Users\peshal.parajuli\Desktop\proj\Web\obj\Debug\net9.0\ref\Web.dll
 C:\Users\peshal.parajuli\Desktop\proj\Web\obj\Debug\net9.0\compressed\gga45437c7-87wjcpcsjf.gz
 C:\Users\peshal.parajuli\Desktop\proj\Web\obj\Debug\net9.0\compressed\6bir0r8491-87wjcpcsjf.gz
+C:\Users\peshal.parajuli\Desktop\proj\Web\obj\Debug\net9.0\Web.sourcelink.json
