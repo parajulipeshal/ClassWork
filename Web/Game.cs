@@ -1,10 +1,14 @@
 using System.Timers;
 using Web;
 
-public class Game
+public record Game
 {
-    public Guid Id { get; } = Guid.NewGuid();
+    public Guid Id { get; init; } = Guid.NewGuid();
     public event Action? GameUpdated;
+    public bool GameIsRunning
+    {
+        get => tickTimer != null;
+    }
     public string? player { get; set; }
 
     public int TickNumber { get; set; }
@@ -12,15 +16,22 @@ public class Game
     public void DoTick(object? sender, ElapsedEventArgs e)
     {
         TickNumber++;
-        //System.Console.WriteLine("Did tick: " + TickNumber);
         GameUpdated?.Invoke();
     }
     public void StartGame()
     {
-    
+
         tickTimer = new System.Timers.Timer(1000);
         tickTimer.Elapsed += DoTick;
         tickTimer.AutoReset = true;
         tickTimer.Enabled = true;
+    }
+    public void StopGame()
+    {
+        if (tickTimer != null)
+        {
+            tickTimer.Enabled = false;
+            Console.WriteLine("Game stopped.");
+        }
     }
 }
