@@ -10,6 +10,8 @@ public record Game
         get => tickTimer != null;
     }
     public string? player { get; set; }
+    public string Player1 { get; set; }
+    public string Player2 { get; set; }
 
     public int TickNumber { get; set; }
     private System.Timers.Timer? tickTimer = null;
@@ -18,6 +20,7 @@ public record Game
         TickNumber++;
         GameUpdated?.Invoke();
     }
+
     public void StartGame()
     {
 

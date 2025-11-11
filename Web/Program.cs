@@ -30,9 +30,15 @@
 using System.Text.Json;
 
 Game game = new Game();
-
+await Task.Delay(3000);
+System.Console.WriteLine("Writing and reading FS");
 //get a string version of the Game;
 
-string gameJson = JsonSerializer.Serialize(game);
+string gameJson = JsonSerializer.Serialize(GameDTO.GameToDTO(game));
+System.Console.WriteLine(gameJson);
 File.WriteAllText("game.json", gameJson);
-File.ReadAllText(gameJson);
+GameDTO copyofGame = JsonSerializer.Deserialize<GameDTO>(gameJson);
+Game restoredGame = copyofGame.ToGame();
+System.Console.WriteLine(restoredGame);
+
+
